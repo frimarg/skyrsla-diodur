@@ -1,0 +1,303 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{float}
+
+\usepackage[top=1.2in, bottom=1.2in,left=2cm,right=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[icelandic]{babel}
+\usepackage{subcaption}
+
+%heimildarskráin
+\usepackage[
+backend=biber,
+style= phys
+]{biblatex}
+\addbibresource{biblio.bib}
+
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\vspace*{3cm}
+
+
+\textbf{\Huge Díóður }\\[1.5cm]
+
+\textbf{\large Fríða Margrét Guðmundsdóttir \\ Hildur Björk Búadóttir } \\ [0.5cm]
+
+\textnormal{\large Rafeindatækni fastra efna \\ Einar Örn Sveinbjörnsson
+ \\ 14/11/25}
+
+\vfill
+\end{center}
+\end{titlepage}
+
+\section{Ágrip}
+Í þessari tilraun eru rannsakaðir mismunandi eiginleikar díóða með C-V mælingum, I-V mælingum og mælingum á viðbragðstíma. Niðurstöður fyrir C-V mælingar sýndu að $N_D = 1,39\times10^{16}\text{cm}^{-3}$ fyrir BYS26-45 díóðuna og gegnumbrotspennan var um 40–50 V en fyrir díóðuna BZX55C13 var $N_D = 7,1\times10^{16}\text{cm}^{-3}$ og gegnumbrotspennan var um 15 V. Þetta sýnir að hærri íbótarstyrkur leiðir til lægri brotspennu. Fyrir díóðuna 1N4007 kom í ljós að dópunin eykst með dýpt sem er í samræmi við fræðilega eiginleika p–n skeyta. Úr I-V mælingum sýndu niðurstöður að hærri hnéspenna samsvarar stærra orkugeili. Ljósdíóður höfðu þá hæstu hnéspennuna og germaníum díóða þá lægstu. Að lokum sýndu mælingar á viðbragðstíma að líftími hola fyrir díóðuna 1N4007 var $\tau_p = 9,83~\mu\text{s}$. Díóðan BAT48 sýndi þó ekki neikvæðan straum við bakspennu og því ekki hægt að ákvarða líftíma holanna. Það staðfestir að díóður með styttri líftíma hafa hraðara viðbragð.
+
+
+
+\section{Inngangur}
+
+Díóður eru gerðar úr hálfleiðurum sem mynda p-n-skeyti. P-hlið díóðu hefur holur og n-hliðin rafeindir. Við tengingu n- og p-hliðar verður til svæði milli þeirra sem kallast berasnauðabil. Breidd þessa svæðis og hversu vel díóðan leiðir ræðst af íbótarstyrk hvorrar hliðar og spennunni sem sett er yfir skeytið. 
+
+Þegar díóðan er bakspennt þá víkkar berasnauðabilið. Fjarlægðin $x$ táknar dýptina inn í n-hlið díóðunnar, mælda frá p-n skeytinu. Rýmdin, $C$, minnkar þegar berasnauðabilið stækkar. Samband rýmdar og dýptar er gefið með:
+\begin{equation}\label{eq:x}
+    x = \frac{\varepsilon_0 \, \varepsilon_r \, A}{C}
+\end{equation}
+þar sem $A$ er flatarmál pn-skeytis, $\varepsilon_0$ er rafsviðsstuðull tómarúms og $\varepsilon_r$ er hlutfallslegur rafsvörunarstuðull efnisins (fyrir kísil er $\varepsilon_r \approx 11.9$). Ef litið er á p–n skeyti sem ósamhverft skeyti þar sem annað svæðið er mun þyngra dópað en hitt (p$^+$n-mót), má sýna að sambandið milli rýmdar og bakspennu er gefið með jöfnunni:
+\begin{equation}\label{eq:cv}
+    \frac{1}{C^2} = \frac{2 (V_{\mathrm{bi}} - V_R)}{q \, N_D \, \varepsilon_0 \, \varepsilon_r \, A^2}
+\end{equation}
+þar sem $q$ er hleðsla rafeindar. 
+
+Fyrir díóður þar sem dópunin breytist smám saman inn í efnið (\textit{non-abrupt}) er ekki hægt að gera ráð fyrir einum föstum dópunarstyrk, $N_D$. Í slíkum tilfellum getur dópunin breyst með fjarlægð $x$ frá skeytinu og því má ákvarða breytilegan dópunarstyrk, $N_D(x)$, með sambandinu:
+\begin{equation}\label{eq:ND2}
+    N_D(x) = \frac{2}{q \, \varepsilon_0 \, \varepsilon_r \, A^2 \, \left| \frac{d(1/C^2)}{dV_R} \right|}.
+\end{equation}
+Þegar díóða er framspennt flytjast rafeindir frá n-hliðinni yfir í p-hliðina. Við það minnkar berasnauðabilið og díóðan byrjar að leiða straum. Straumurinn er þó ekki mikill í fyrstu og er það ekki fyrr en að spennan nær hnéspennu sem hann byrjar að aukast. Hnéspenna tengist bæði orkugeil efnis og íbótarstyrk p- og n-hliðar. Orkugeilið endurspeglar hversu mikla orku þarf til þess að flytja rafeind frá gildisborða og upp í leiðniborða. Því stærra sem orkugeilið er því hærri verður hnéspenna díóðunnar. Út frá hnéspennu efnis má þá bera saman mismunandi díóður og á sama tíma má álykta um stærð orkugeilsins. Hnéspennan ræðst einnig af íbótarstyrk p- og n-hliðar. Innbyggða spenna p-n skeytisins má nálga með:
+\begin{equation}\label{eq:4}
+    V_{\mathrm{bi}} = \frac{kT}{q}\ln\!\left(\frac{N_A N_D}{n_i^2}\right),
+\end{equation}
+þar sem $N_A$ og $N_D$ eru íbótarstyrkir og $n_i$ er eiginhleðsluberaþéttleiki. Eins og má sjá með jöfnunni þá hækkar $V_{\mathrm{bi}}$ með auknum íbótarstyrk og þar af leiðandi hækkar hnéspennan. Við bakspennta díóðu er straumurinn lítill þar til að gegnumbrot verður við gegnumbrotsspennu, $V_{BD}$. Gegnumbrotspennan verður lægri með háum íbótarstyrk og má lýsa með:
+\begin{equation}\label{eq:5}
+    V_{BD} \propto \frac{1}{N_D}.
+\end{equation}
+Þetta sést einnig á mynd~\ref{fig:tulkun} þar sem að gegnumbrotspenna Ge, Si, GaAs og GaP minnkar með auknum íbótarstyrk.
+
+Ef díóða er lengi framspennt geta safnast upp minnihlutaberar öðru megin í efninu. Við spennubreytingu yfir í neikvæða spennu eða bakspennu þarf díóðan tíma til að fjarlægja hleðsluna sem hefur safnast fyrir. Sá tími kallast viðbragðstími díóðunnar og er táknaður með $t_s$. Viðbragðstíminn tengist líftíma hola, $\tau_p$, samkvæmt jöfnunni:
+
+\begin{equation}\label{eq:6}
+t_s = \tau_p \ln\left(1 + \frac{I_F}{I_B}\right)
+\end{equation}
+þar sem $I_F$ er straumur díóðunnar þegar hún er framspennt og $I_B$ er straumur díóðunnar þegar hún er bakspennt. Því lengri sem líftími holanna er því hærri verður viðbragðstíminn, $t_s$.
+
+\section{Framkvæmd}
+
+\subsection{C-V mælingar}
+
+Tilrauninni er skipt í þrjá hluta þar sem mismunandi eiginleikar díóða eru skoðaðir. Í fyrsta hluta tilraunarinnar er rýmd díóða mæld sem fall af bakspennu, $V_R$, með C-V mæli fyrir þrjár díóður, 1N4007, BYS26-45 og BZX55C13 (Zener). Bakspennunni er breytt í jöfnum skrefum og rýmd lesin af mælinum. Þar sem Zener-díóðan (BZX55C13) þolir ekki mikla bakspennu er $V_R$ aðeins aukin upp í $13\,\text{V}$ fyrir þessa díóðu en fyrir 1N4007 og BYS26-45 er spennan aukin upp í $40\,\text{V}$.
+
+
+\subsection{I-V mælingar}
+
+Í öðrum hluta tilraunarinnar eru skoðaðar I-V myndir fyrir sjö mismunandi díóður, tvær kísildíóður BZX55C4V7 og 1N4007, fjórar ljósdíóður og einn nóra AC187 Ge. Notaðar eru tvær lappir á nóranum og þá fæst díóða með n-p-skeyti. Það er gert með því að nota mælibox sem er tengt á sveiflusjá á XY stillingu. X-ásinn táknar spennuna yfir díóðuna og Y-ásinn strauminn í gegnum hana. Skalann má svo stilla eftir vild en gott er að hafa þá eins fyrir hverja díóðu eða skoða þá nákvæmlega hver þröskuldspennan er til þess að geta skoðað mismunandi hnéspennur díóðanna.
+
+\subsection{Mælingar á viðbragðstíma díóða}
+Í þriðja hluta tilraunarinnar er athugað viðbragðstíma díóða. Spennugjafi er raðtengdur við díóðu og $1~\text{k}\Omega$ viðnám. Á myndum \ref{fig:Tilraun3bakspenna} og \ref{fig:Tilraun3} má sjá gula línu sem sýnir kassabylgjuna frá spennugjafanum og bláa línan sýnir spennuna yfir viðnáminu. Með því að skoða spennuna yfir viðnáminu er hægt að sjá tímann $t_s$ og strauminn þegar díóðan er framspennt og bakspennt. Viðbragðstíminn $t_s$ er lesinn af x-ásnum sem bilið frá því að framspennan yfir díóðunni verður núll og þar til bakspennan verður einnig núll. Með þessum gögnum má reikna líftíma holanna með jöfnu \eqref{eq:6}.
+
+\begin{figure}[h!]
+    \centering
+\includegraphics[width=0.50\textwidth]{tulkun.jpeg}
+    \caption{Mynd úr \cite{Tilraun_2:_Diodes}. Samband gegnumbrotspennu og dópunarstyrks fyrir mismunandi hálfleiðaraefni.
+    }
+    \label{fig:tulkun}
+\end{figure}
+
+
+\section{Niðurstöður og umræða}
+\subsection{C-V mælingar}
+
+\begin{figure}[h!]
+    \centering
+
+    \includegraphics[width=0.68\textwidth]{BYS2645-graf1.jpeg}\\[-4pt]
+    \small BYS26-45
+    \vspace{0.5cm}
+
+    \includegraphics[width=0.68\textwidth]{BZX55C13-graf1.jpeg}\\[-4pt]
+    \small BZX55C13
+    \vspace{0.5cm}
+
+    \includegraphics[width=0.68\textwidth]{iN4007-graf1.jpeg}\\[-4pt]
+    \small 1N4007
+
+    \caption{Rýmd, $C$, sem fall af bakspennu, $-V_R$, fyrir díóðurnar BYS26-45, BZX55C13 og 1N4007.}
+    \label{fig:C-allar}
+\end{figure}
+Mynd \ref{fig:C-allar} sýnir mælda rýmd, $C$, sem fall af bakspennu, $-V_R$, fyrir díóðurnar BYS26-45, BZX55C13 og 1N4007. Rýmdin minnkar með vaxandi bakspennu sem samsvarar því að berasnauðabil díóðunnar víkkar.
+
+\begin{figure}[h!]
+    \centering
+
+    \includegraphics[width=0.65\textwidth]{BYS2645-graf2.jpeg}\\[-4pt]
+    \small BYS26-45
+    \vspace{0.3cm}
+
+    \includegraphics[width=0.65\textwidth]{BZX55C13-graf2.jpeg}\\[-4pt]
+    \small BZX55C13
+    \vspace{0.3cm}
+
+    \caption{Graf af $1/C^2$ sem fall af $-V_R$ fyrir díóðurnar BYS26-45 og BZX55C13.}
+    \label{fig:CCV-2}
+\end{figure}
+
+
+
+
+Mynd \ref{fig:CCV-2} sýnir graf af $1/C^2$ sem fall af bakspennunni, $-V_R$, fyrir díóðurnar BYS26-45 og BZX55C13.
+Samkvæmt jöfnu \eqref{eq:cv} ásamt hallatölunni $m$, fæst dópunarstyrkurinn:
+\begin{equation}
+N_D = \frac{2}{q\,\varepsilon_0\,\varepsilon_r\,A^2\,m}.
+\label{eq:ND}
+\end{equation}
+Fyrir díóðuna BYS26-45 er $m_1 = 4,35\times10^{18}$ $(\text{F}^{-2}\text{V}^{-1})$ og $A = 1,4\times10^{-6}\,\text{m}^2$. Þá gefur jafna \eqref{eq:ND} að $N_D = 1,39\times10^{16}\,\text{cm}^{-3}$. Á mynd \ref{fig:tulkun} má sjá að fyrir slíkan dópunarstyrk er gegnumbrotspennan í kringum 40 V - 50 V. Fyrir díóðuna BZX55C13 er $m_2 = 8,21\times10^{20}$ $(\text{F}^{-2}\text{V}^{-1})$ og $A = 4,5\times10^{-8}\,\text{m}^2$. Á sama hátt fæst að $N_D = 7,1\times10^{16}\,\text{cm}^{-3}$ og samkvæmt mynd \ref{fig:tulkun} er gegnumbrotspennan í kringum 15V. Þetta sýnir að hærri dópunarstyrkur leiðir til lægri brotspennu.
+
+
+
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IN4007-graf2.jpeg}
+        \caption{Graf af $1/C^2$ sem fall af $-V_R$ fyrir díóðuna 1N4007.}
+        \label{fig:IN4007-graf2}
+    \end{minipage}
+
+    \vspace{0.5cm}
+
+    \begin{minipage}{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IN4007-graf3.jpeg}
+        \caption{Graf af dópunarstyrk, $N_D$, sem fall af fjarlægðinni, $x$, inn í díóðuna 1N4007 n-megin.}
+        \label{fig:IN4007-graf3}
+    \end{minipage}
+\end{figure}
+
+
+
+
+Mynd \ref{fig:IN4007-graf2} sýnir graf af $1/C^2$ sem fall af bakspennunni, $-V_R$, fyrir díóðuna 1N4007. Hér má sjá að $1/C^2$ er ekki línulegt yfir allt spennubilið sem bendir til þess að dópunin er ekki jöfn nálægt p-n-skeytinu.
+Með því að lesa hallatölur á mismunandi spennubilum má finna dópunarstyrkinn, $N_D$, fyrir hvert bil með jöfnu \eqref{eq:ND2}. Þar sem berasnauðabilið, $w$, breikkar þegar bakspennan eykst er einnig ákvarða hvernig fjarlægðin, $x$, inn í díóðunni breytist með jöfnu \eqref{eq:x}.
+
+
+
+Mynd \ref{fig:IN4007-graf3} sýnir hvernig dópunarstyrkurinn, $N_D$, breytist með fjarlægðinni, $x$, inn í díóðuna. Sjá má að sambandið er nær línulegt og að $N_D$ eykst með aukinni dýpt.
+Þetta endurspeglar að p-íbótin er að lækka þegar fjær dregur skeytinu þannig að dópunin er lægst við p-n-skeytið en verður hærri þegar farið er dýpra inn í efnið.
+
+
+
+
+
+\clearpage
+\subsection{I-V mælingar}
+
+Skoðuð var hnéspennu sjö mismunandi díóðum og niðurstöður þeirra bornar saman. Á myndum~\ref{fig:mynd1}–\ref{fig:mynd7} má sjá I-V myndir díóðanna.
+
+% --- ROW 1 ---
+\begin{figure}[h!]
+\centering
+\begin{minipage}[b]{0.47\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{dioda1.jpeg}
+    \caption{Hnéspenna BZX55C4V7 kísildíóðu sem er um 0,85 V. Hér má sjá gegnumbrotspennu díóðunnar.}
+    \label{fig:mynd1}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{dioda2.jpeg}
+    \caption{Hnéspenna 1N4007 kísildíóðu sem er um 0,7 V, sem passar við hefðbundna kísildíóðu.}
+    \label{fig:mynd2}
+\end{minipage}
+\end{figure}
+
+% --- ROW 2 ---
+\begin{figure}[h!]
+\centering
+\begin{minipage}[b]{0.47\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{diodabla.jpeg}
+    \caption{Hnéspennan fyrir bláa ljósdíóðu. Á myndinni má sjá að bláa ljósdíóðan sýndi hæstu hnéspennuna.}
+    \label{fig:mynd3}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{diodagræn.jpeg}
+    \caption{Hnéspennan fyrir græna ljósdíóðu.}
+    \label{fig:mynd4}
+\end{minipage}
+\end{figure}
+
+% --- ROW 3 ---
+\begin{figure}[h!]
+\centering
+\begin{minipage}[b]{0.47\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{diodagul.jpeg}
+    \caption{Hnéspennan fyrir gula ljósdíóðu.}
+    \label{fig:mynd5}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{diodaraud.jpeg}
+    \caption{Hnéspennan fyrir rauða ljósdíóðu.}
+    \label{fig:mynd6}
+\end{minipage}
+\end{figure}
+
+% --- ROW 4 (single image, moves to next page if needed) ---
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.47\textwidth]{diodanori.jpeg}
+\caption{Hnéspennan fyrir germaníum nórann. Þetta er lægsta hnéspennan af öllum díóðunum og var um 0,2 V.}
+\label{fig:mynd7}
+\end{figure}
+
+
+
+
+Á myndum ~\ref{fig:mynd1} og ~\ref{fig:mynd2} má sjá hnéspennu tveggja kísildíóðanna. Á mynd ~\ref{fig:mynd1} má sjá að hnéspennan er um 0,85 V og mynd ~\ref{fig:mynd2} sýnir hnéspennu um 0,7 V. Samkvæmt jöfnu ~\eqref{eq:4}  fyrir innbyggðu spennuna $V_{\mathrm{bi}}$ hækkar $V_{\mathrm{bi}}$ með auknum íbótarstyrk $N_A$ og $N_D$ og má nálga að hnéspennan sé u.þ.b. sú sama og innbyggða spennan. Munurinn á hnéspennum díóðanna bendir þá til þess að BZX55C4V7 hafi hærri íbótarstyrk en 1N4007. Á mynd\ref{fig:mynd1} sést bakstraumur við neikvæða spennu svo þar hefur orðið gegnumbrot . Samkvæmt sambandinu $V_{BD}\propto 1/N_D$ hefur díóða með hærri íbótarstyrk lægri gegnumbrotsspennu.
+
+Ljósdíóðurnar sýndu hærri hnéspennu en kísildíóðurnar. Á mynd \ref{fig:mynd3} má sjá að bláa díóðan hafði hæstu hnéspennuna af ljósdíóðunum. Gula díóðan hafði lægstu hnéspennuna sem má sjá á mynd \ref{fig:mynd6}. Á mynd \ref{fig:mynd7} má einnig sjá að hnéspenna nórans er mjög lág eða um 0,2V.  Þessar niðurstöður sýna að samband hnéspennu og stærð orkugeils eru í samræmi. Þar sem að ljósdíóður hafa almennt stærra orkugeil en kísildíóður hafa þær einnig hærri hnéspennu en kísildíóður. Nórinn sem var notaður sem díóða hafði hnéspennu um 0,2 V. Það passar þar sem að nórinn var úr germaníum og orkugeilið í honum er almennt ekki stórt.
+
+
+
+\subsection{Mælingar á viðbragðstíma díóða}
+Mældur var viðbragðstími, $t_s$, tveggja díóða. Á mynd~\ref{fig:Tilraun3bakspenna} má sjá að fyrri díóðan 1N4007 sýndi neikvæðan straum þegar hún var bakspennt. Það bendir til þess að minnihlutaberar eða holur í þessu tilfelli höfðu safnast fyrir í n-hlutanum og þær þurftu tíma til að lenda í samruna við rafeindir. Neikvæður straumur gefur þá til kynna langan líftíma holanna sem er í samræmi við reiknað gildi líftímans með jöfnu~\eqref{eq:6}. Þá var
+
+\[
+\tau_p = 9,83~\mu\text{s}
+\]
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Tilraun3bakspenna.jpg}
+    \caption{ 1N4007 díóðan sýndi neikvæðan straum þegar hún var bakspennt. Út frá myndinni má ákvarða $t_s$, $I_B$, og $I_F$.
+    }
+    \label{fig:Tilraun3bakspenna}
+\end{figure}
+Á mynd~\ref{fig:Tilraun3} má sjá að díóðan BAT48 sýndi engan neikvæðan straum við bakspennu. Það þýðir að holurnar lentu strax í samruna við rafeindirnar og safnast þá ekki fyrir. Það þýðir að líftími holanna er mjög lágur eða ekki er hægt að reikna hann með jöfnu~\eqref{eq:5} þar sem að straumurinn $I_R$ er ekki sýnilegur.
+
+Hægt er að nýta sér líftíma hola í díóðu. Því lægri sem líftíminn er því hraðara viðbragð hefur díóðan sem er gott í hraðvirkum rásum. En þegar líftími holanna er lengri má nýta það í að leiða meiri straum þegar díóðan er bakspennt.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Tilraun3.jpg}
+    \caption{ BAT48 díóðan sýndi ekki neikvæðan straum og því ekki hægt að ákvarða líftíma holanna. 
+    }
+    \label{fig:Tilraun3}
+\end{figure}
+
+
+\section{Lokaorð}
+Í þessari tilraun voru skoðaðir mismunandi eiginleikar díóða með C–V mælingum, I–V mælingum og mælingum á viðbragðstíma. Úr C-V mælingum var íbótarstyrkur ákvarðaður og niðurstöður sýndu að hærri íbótarstyrkur leiðir til lægri gegnumbrotspennu. Fyrir díóðuna 1N4007 fékkst að íbótin eykst með dýpt inn í n-efnið frá p-n-skeytinu. I-V mælingarnar sýndu að orkugeil og íbótarstyrkur ráða hnéspennu og gegnumbrotspennu. Hærri hnéspenna samsvarar stærra orkugeili við hærri íbótarstyrk verður gegnumbrotspennan lægri. Viðbragðsmælingar sýndu að díóður með lengri líftíma hola hafa hærra viðbragð.
+
+
+
+% ---- Bibliography ----
+\cite{Tilraun_2:_Diodes}
+\cite{7_pn_Junction_Diode:_Small-Signal_Admittance+8_pn_Junction_Diode:_Transient_Response}
+\cite{8_pn_Junction_Diode:_Transient_Response}
+\printbibliography
+\markboth{}{}
+
+\end{document}
+
+
+
+
+
